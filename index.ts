@@ -20,7 +20,7 @@ app.use(passport.initialize())
 app.use('/api', router)
 
 //app start
-const appStart = () => {
+export const appStart = () => {
   app.listen(PORT, () => {
     console.log(`The app is running at http://localhost:${PORT}`)
   })

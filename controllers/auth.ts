@@ -4,9 +4,9 @@ import {sign} from "jsonwebtoken"
 import {hash} from "bcryptjs"
 import {  Request, Response } from 'express';
 
-export const getUsers = async (req:Request, res:Response) => {
+export const getAccounts = async (req:Request, res:Response) => {
   try {
-    const { rows } = await pool.query('select account_id, email from account')
+    const { rows } = await pool.query('select account_id, email, created_at, updated_at from account')
 
     return res.status(200).json({
       success: true,

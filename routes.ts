@@ -1,5 +1,5 @@
 import {  Router } from 'express';
-import {  getUsers,
+import {  getAccounts,
   register,
   login,
   protectedAuth,
@@ -11,7 +11,7 @@ import {  registerValidation, loginValidation  } from './validators';
 
 export const router = Router()
 
-router.get('/get-users', getUsers)
+router.get('/get-accounts', getAccounts)
 router.get('/protected', userAuth, protectedAuth)
 router.post('/register', registerValidation, validationMiddleware, register)
 router.post('/login', loginValidation, validationMiddleware, login)
