@@ -4,8 +4,8 @@ import {  getUsers,
   login,
   protectedAuth,
   logout, } from './controllers/auth';
-import {  userAuth } from './middlewares/auth';
-import {  validationMiddleware } from './middlewares/validations';
+import {  userAuth } from './middleware/auth';
+import {  validationMiddleware } from './middleware/validations';
 
 import {  registerValidation, loginValidation  } from './validators';
 

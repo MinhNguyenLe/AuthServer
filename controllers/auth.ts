@@ -12,8 +12,8 @@ export const getUsers = async (req:Request, res:Response) => {
       success: true,
       account: rows,
     })
-  } catch (error:any) {
-    console.log(error.message)
+  } catch (error) {
+    console.log(error)
   }
 }
 
@@ -29,21 +29,20 @@ export const register = async(req:Request, res:Response) => {
 
     return res.status(201).json({
       success: true,
-      message: 'The registraion was succefull',
+      message: 'Register successfully',
     })
-  } catch (error:any) {
-    console.log(error.message)
+  } catch (error) {
+    console.log(error)
     return res.status(500).json({
-      error: error.message,
+      error: error,
     })
   }
 }
 export const login = async(req:Request, res:Response) => {
-  const user = req.body.user
-
+  const account = req.body.account
   const payload = {
-    id: user.account_id,
-    email: user.email,
+    id: account.account_id,
+    email: account.email,
   }
 
   try {
@@ -51,12 +50,12 @@ export const login = async(req:Request, res:Response) => {
 
     return res.status(200).cookie('token', token, { httpOnly: true }).json({
       success: true,
-      message: 'Logged in succefully',
+      message: 'Logged in successfully',
     })
-  } catch (error:any) {
-    console.log(error.message)
+  } catch (error) {
+    console.log(error)
     return res.status(500).json({
-      error: error.message,
+      error: error,
     })
   }
 }
@@ -66,8 +65,8 @@ export const protectedAuth = async(req:Request, res:Response) => {
     return res.status(200).json({
       info: 'protected info',
     })
-  } catch (error:any) {
-    console.log(error.message)
+  } catch (error) {
+    console.log(error)
   }
 }
 
@@ -75,12 +74,12 @@ export const logout =  async(req:Request, res:Response) => {
   try {
     return res.status(200).clearCookie('token', { httpOnly: true }).json({
       success: true,
-      message: 'Logged out succefully',
+      message: 'Logged out successfully',
     })
-  } catch (error:any) {
-    console.log(error.message)
+  } catch (error) {
+    console.log(error)
     return res.status(500).json({
-      error: error.message,
+      error: error,
     })
   }
 }

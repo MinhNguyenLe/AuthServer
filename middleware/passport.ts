@@ -30,8 +30,8 @@ passport.use(
       const user = { id: rows[0].account_id, email: rows[0].email }
 
       return await done(null, user)
-    } catch (error:any) {
-      console.log(error.message)
+    } catch (error) {
+      console.log(error)
       done(null, false)
     }
   })

@@ -1,10 +1,10 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import dotenv from 'dotenv';
 import cors from "cors";
 
-import './middlewares/passport'
+import './middleware/passport'
 import {router} from './routes'
 
 dotenv.config();
@@ -21,18 +21,9 @@ app.use('/api', router)
 
 //app start
 const appStart = () => {
-  try {
-    app.listen(PORT, () => {
-      console.log(`The app is running at http://localhost:${PORT}`)
-    })
-  } catch (error: any) {
-    console.log(`Error: ${error.message}`)
-  }
+  app.listen(PORT, () => {
+    console.log(`The app is running at http://localhost:${PORT}`)
+  })
 }
 
 appStart()
-
-app.get('/', (req: Request, res: Response) => {
-  console.log("?")
-  res.send('Server running successful !');
-});
