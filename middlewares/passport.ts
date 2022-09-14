@@ -27,7 +27,7 @@ passport.use(
         throw new Error('401 not authorized')
       }
 
-      let user = { id: rows[0].user_id, email: rows[0].email }
+      const user = { id: rows[0].user_id, email: rows[0].email }
 
       return await done(null, user)
     } catch (error:any) {

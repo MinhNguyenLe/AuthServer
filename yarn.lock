@@ -257,6 +257,14 @@
     "@types/mime" "*"
     "@types/node" "*"
 
+"@types/webpack-node-externals@^2.5.3":
+  "integrity" "sha512-A9JxaR8QXoYT95egET4AmCFuChyTlP8d18ZAnmSHuIMsFdS7QlCQQ8pmN/+FHgLIkm+ViE/VngltT5avLACY9A=="
+  "resolved" "https://registry.npmjs.org/@types/webpack-node-externals/-/webpack-node-externals-2.5.3.tgz"
+  "version" "2.5.3"
+  dependencies:
+    "@types/node" "*"
+    "webpack" "^5"
+
 "@typescript-eslint/eslint-plugin@^5.37.0":
   "integrity" "sha512-Fde6W0IafXktz1UlnhGkrrmnnGpAo1kyX7dnyHHVrmwJOn72Oqm3eYtddrpOwwel2W8PAK9F3pIL5S+lfoM0og=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.37.0.tgz"
@@ -2499,7 +2507,7 @@
   "resolved" "https://registry.npmjs.org/webpack-sources/-/webpack-sources-3.2.3.tgz"
   "version" "3.2.3"
 
-"webpack@^5.0.0", "webpack@^5.1.0", "webpack@^5.74.0", "webpack@4.x.x || 5.x.x":
+"webpack@^5", "webpack@^5.0.0", "webpack@^5.1.0", "webpack@^5.74.0", "webpack@4.x.x || 5.x.x":
   "integrity" "sha512-A2InDwnhhGN4LYctJj6M1JEaGL7Luj6LOmyBHjcI8529cm5p6VXiTIW2sn6ffvEAKmveLzvu4jrihwXtPojlAA=="
   "resolved" "https://registry.npmjs.org/webpack/-/webpack-5.74.0.tgz"
   "version" "5.74.0"

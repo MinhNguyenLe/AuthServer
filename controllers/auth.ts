@@ -39,9 +39,9 @@ export const register = async(req:Request, res:Response) => {
   }
 }
 export const login = async(req:Request, res:Response) => {
-  let user = req.body.user
+  const user = req.body.user
 
-  let payload = {
+  const payload = {
     id: user.user_id,
     email: user.email,
   }
