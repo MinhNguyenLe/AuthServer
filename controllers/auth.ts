@@ -42,7 +42,7 @@ export const login = async(req:Request, res:Response) => {
   const user = req.body.user
 
   const payload = {
-    id: user.user_id,
+    id: user.account_id,
     email: user.email,
   }
 

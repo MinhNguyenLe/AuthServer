@@ -10,7 +10,7 @@ export const pool = new Pool({
   password:process.env.DB_PASSWORD || 'password',
   host:process.env.DB_HOST || 'localhost',
   port: toNumber(process.env.DB_PORT) || 5432,
-  database: process.env.DB_DATABASE || "authdb"
+  database: process.env.DB_DATABASE || "db_auth"
   // connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
   // ssl: isProduction
 });

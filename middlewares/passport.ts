@@ -19,7 +19,7 @@ passport.use(
   new Strategy(opts, async ({ id }, done) => {
     try {
       const { rows } = await pool.query(
-        'SELECT user_id, email FROM users WHERE user_id = $1',
+        'SELECT account_id, email FROM account WHERE account_id = $1',
         [id]
       )
 
@@ -27,7 +27,7 @@ passport.use(
         throw new Error('401 not authorized')
       }
 
-      const user = { id: rows[0].user_id, email: rows[0].email }
+      const user = { id: rows[0].account_id, email: rows[0].email }
 
       return await done(null, user)
     } catch (error:any) {
