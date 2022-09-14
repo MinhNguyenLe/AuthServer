@@ -1,35 +1,38 @@
 import express, { Express, Request, Response } from 'express';
+import cookieParser from 'cookie-parser';
+import passport from 'passport';
 import dotenv from 'dotenv';
 import cors from "cors";
-import pool from "./db"
+
+import './middlewares/passport'
+import {router} from './routes'
 
 dotenv.config();
+const app: Express = express()
 
-const app: Express = express();
+const PORT:string = process.env.PORT || '5678';
 
-app.use(cors())
 app.use(express.json())
+app.use(cookieParser())
+app.use(cors({ origin: process.env.CLIENT_URL || `http://localhost:${PORT}`, credentials: true }))
+app.use(passport.initialize())
 
-const port:string = process.env.PORT || '5678';
+app.use('/api', router)
+
+//app start
+const appStart = () => {
+  try {
+    app.listen(PORT, () => {
+      console.log(`The app is running at http://localhost:${PORT}`)
+    })
+  } catch (error: any) {
+    console.log(`Error: ${error.message}`)
+  }
+}
+
+appStart()
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
-});
-
-app.post("/todos",async(req:Request,res:Response)=>{
-  try{
-    const { description } = req.body;
-    console.log(req.body)
-    
-    const newTodo = await pool.query("INSERT INTO todo (description) VALUES($1)",[description]);
-
-    res.json(newTodo)
-
-  }catch(err){
-    console.log("----",err)
-  }
-})
-
-app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
+  console.log("?")
+  res.send('Server running successful !');
 });
