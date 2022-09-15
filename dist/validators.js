@@ -33,12 +33,12 @@ const emailExists = (0, express_validator_1.check)("email").custom((value) => __
 //login validation
 const loginFieldsCheck = (0, express_validator_1.check)("email").custom((value, { req }) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield db_1.pool.query("SELECT * from ACCOUNT WHERE email = $1", [
-        req.body.account.email,
+        req.body.email,
     ]);
     if (!user.rows.length) {
         throw new Error("Email does not exists.");
     }
-    const validPassword = yield (0, bcryptjs_1.compare)(req.body.account.password, user.rows[0].password);
+    const validPassword = yield (0, bcryptjs_1.compare)(req.body.password, user.rows[0].password);
     if (!validPassword) {
         throw new Error("Wrong password");
     }

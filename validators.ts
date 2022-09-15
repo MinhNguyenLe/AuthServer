@@ -26,17 +26,14 @@ const emailExists = check("email").custom(async (value) => {
 //login validation
 const loginFieldsCheck = check("email").custom(async (value, { req }) => {
   const user = await pool.query("SELECT * from ACCOUNT WHERE email = $1", [
-    req.body.account.email,
+    req.body.email,
   ]);
 
   if (!user.rows.length) {
     throw new Error("Email does not exists.");
   }
 
-  const validPassword = await compare(
-    req.body.account.password,
-    user.rows[0].password
-  );
+  const validPassword = await compare(req.body.password, user.rows[0].password);
 
   if (!validPassword) {
     throw new Error("Wrong password");

@@ -48,9 +48,9 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.register = register;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const account = req.body.account;
+    const account = req.body;
     const payload = {
-        id: account.account_id,
+        // id: account.account_id,
         email: account.email,
     };
     try {

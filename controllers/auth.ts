@@ -41,9 +41,9 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 export const login = async (req: Request, res: Response) => {
-  const account = req.body.account;
+  const account = req.body;
   const payload = {
-    id: account.account_id,
+    // id: account.account_id,
     email: account.email,
   };
 
