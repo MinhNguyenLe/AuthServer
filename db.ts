@@ -6,7 +6,7 @@ import { Pool } from "pg";
 // const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
 
 export const pool = new Pool({
-  user: process.env.DB_USE || "minhlee",
+  user: process.env.DB_USER || "minhlee",
   password: process.env.DB_PASSWORD || "password",
   host: process.env.DB_HOST || "localhost",
   port: toNumber(process.env.DB_PORT) || 5432,
